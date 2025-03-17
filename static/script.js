@@ -86,6 +86,6 @@ function greetingFunc() {
     }
 }
 
-if (window.location.href.includes("index.html") || window.location.href == "https://michaelyeh507.github.io/michael_yeh_personal_website") {
+if (window.location.href.includes("index.html") || window.location.pathname === "/" ) {
     greetingFunc();
 }
