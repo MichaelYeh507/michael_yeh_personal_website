@@ -86,6 +86,6 @@ function greetingFunc() {
     }
 }
 
-if (window.location.href.includes("index.html") || window.location.pathname === "/" ) {
+if (window.location.href.includes("index.html") || window.location.href.endsWith("/")) {
     greetingFunc();
 }
