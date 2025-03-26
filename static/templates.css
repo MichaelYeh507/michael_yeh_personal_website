@@ -1,0 +1,182 @@
+
+/* Set up the grid container */
+.containers {
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "nav"
+        "main"
+        "bottom"
+        "footer";
+    grid-template-rows: auto auto 1fr auto auto;
+    min-height: 100vh;
+}
+
+/* Assign grid areas */
+.header {
+    grid-area: header;
+    background: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+
+.nav {
+    grid-area: nav;
+    background: #343a40;
+    padding: 10px;
+    text-align: center;
+}
+
+.nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+main {
+    grid-area: main;
+    padding: 20px;
+}
+
+/* Use flexbox to make mainimg and maincontent side by side */
+.main-section {
+    display: flex;
+    gap: 20px;
+}
+
+.mainimg {
+    flex: 1;
+    background: #e9ecef;
+    padding: 20px;
+    text-align: center;
+}
+
+.maincontent {
+    flex: 2;
+    background: #dee2e6;
+    padding: 20px;
+}
+
+.bottomcontent {
+    grid-area: bottom;
+    background: #ced4da;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer {
+    grid-area: footer;
+    background: #adb5bd;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .containers {
+        display: grid;
+        grid-template-areas: 
+            "header"
+            "nav"
+            "main"
+            "bottom"
+            "footer";
+        grid-template-rows: auto auto auto auto auto;
+    }
+
+    .main-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .mainimg, 
+    .maincontent {
+        flex: none;
+        width: 100%;
+    }
+}
+
+
+/* General navigation styles */
+.nav {
+    grid-area: nav;
+    background: #343a40;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+/* Style the nav links */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hamburger menu icon */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #343a40;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 50px;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+
+@keyframes nameGlow {
+    0% {
+        color: #f8f9fa;
+        transform: scale(1);
+    }
+    50% {
+        color: #ffcc00;
+        transform: scale(1.1);
+    }
+    100% {
+        color: #f8f9fa;
+        transform: scale(1);
+    }
+}
+
+/* Apply animation to the website name */
+#webname {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: nameGlow 3s infinite ease-in-out;
+}
